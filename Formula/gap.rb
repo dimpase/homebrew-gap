@@ -8,6 +8,7 @@ class Gap < Formula
   # most dependencies are for for packages; only gmp and readline are for GAP itself
   depends_on "cddlib"   # CddInterface
   depends_on "curl"     # curlInterface
+  depends_on "flint"    # a 2nd order dep.
   depends_on "fplll"    # float
   depends_on "gmp"      # - for main GAP
   depends_on "libmpc"   # float
@@ -22,6 +23,7 @@ class Gap < Formula
   depends_on "readline" # - for main GAP
   depends_on "singular" # many packages
   depends_on "zeromq"   # ZeroMQInterface
+  depends_on "zlib-ng-compat" # a 2nd order dep.
 
   def install
     system "./configure", *std_configure_args
@@ -38,6 +40,11 @@ class Gap < Formula
       # compilation. It is known to produce a number of warnings and
       # error messages, possibly failing to build several packages.
       system buildpath/"bin/BuildPackages.sh", "--with-gaproot=#{lib}/gap"
+      rm Dir.glob("#{lib}/gap/pkg/**/*.log")
+      rm Dir.glob("#{lib}/gap/pkg/**/config.status")
+      rm Dir.glob("#{lib}/gap/pkg/**/*.out")
+      rm Dir.glob("#{lib}/gap/pkg/**/Makefile")
+      rm Dir.glob("#{lib}/gap/pkg/**/libtool")
     end
   end
 
