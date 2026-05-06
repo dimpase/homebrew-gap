@@ -1,6 +1,7 @@
 class Gap < Formula
   desc "System for computational discrete algebra"
-  homepage "https://www.gap-system.org/"
+  # homepage "https://www.gap-system.org/" - too slow for test-bot
+  homepage "https://github.com/gap-system/gap"
   url "https://github.com/gap-system/gap/releases/download/v4.15.1/gap-4.15.1.tar.gz"
   sha256 "6049d53e99b12e25c2d848db21ac4a06380a46fe4c4157243d556fe06930042c"
   license "GPL-2.0-or-later"
@@ -43,6 +44,7 @@ class Gap < Formula
       rm Dir.glob("#{lib}/gap/pkg/**/*.log")
       rm Dir.glob("#{lib}/gap/pkg/**/config.status")
       rm Dir.glob("#{lib}/gap/pkg/**/*.out")
+      rm Dir.glob("#{lib}/gap/pkg/**/*.err") # semigroups fails to build on macOS 26
       rm Dir.glob("#{lib}/gap/pkg/**/Makefile")
       rm Dir.glob("#{lib}/gap/pkg/**/libtool")
     end
