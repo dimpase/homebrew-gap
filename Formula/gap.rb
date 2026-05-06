@@ -15,6 +15,7 @@ class Gap < Formula
   depends_on "libmpc"   # float
   depends_on "mpfi"     # float
   depends_on "mpfr"     # float, normalizinterface
+  depends_on "nauty"    # grape
   depends_on "ncurses"  # browse
   depends_on "pari"     # alnuth
   # GAP cannot be built against the native macOS version of readline
