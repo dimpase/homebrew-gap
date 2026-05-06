@@ -30,6 +30,8 @@ To test the GAP Homebrew installation, call
 For the test with a more verbose output, start GAP and then call
 
     Read( Filename( DirectoriesLibrary("tst"), "testinstall.g" ));
+
+Binary Homebrew (and Linuxbrew) bottles should be available too.
    
 Credits
 
