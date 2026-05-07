@@ -53,6 +53,6 @@ class Gap < Formula
 
   test do
     ENV["LC_CTYPE"] = "en_GB.UTF-8"
-    system bin/"gap", "-r", "-A", "#{libexec}/tst/testinstall.g"
+    system bin/"gap", "-r", "-A", "#{lib}/gap/pkg/alnuth/testinstall.g"
   end
 end
