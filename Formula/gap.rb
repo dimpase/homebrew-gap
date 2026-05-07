@@ -6,6 +6,12 @@ class Gap < Formula
   sha256 "6049d53e99b12e25c2d848db21ac4a06380a46fe4c4157243d556fe06930042c"
   license "GPL-2.0-or-later"
 
+  bottle do
+    root_url "https://github.com/dimpase/homebrew-gap/releases/download/gap-4.15.1"
+    rebuild 1
+    sha256 x86_64_linux: "477dfa2d79e45e8f908458ecfd56c8f663f3483e8ed8f53b0caf3cf26b638615"
+  end
+
   # most dependencies are for for packages; only gmp and readline are for GAP itself
   depends_on "cddlib"   # CddInterface
   depends_on "curl"     # curlInterface
