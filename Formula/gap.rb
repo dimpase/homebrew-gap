@@ -11,7 +11,7 @@ class Gap < Formula
   depends_on "curl"     # curlInterface
   depends_on "flint"    # a 2nd order dep.
   depends_on "fplll"    # float
-  depends_on "gmp"      # - for main GAP
+  depends_on "gmp"      # for GAP itself, but also anupq, nq, ...
   depends_on "libmpc"   # float
   depends_on "mpfi"     # float
   depends_on "mpfr"     # float, normalizinterface
