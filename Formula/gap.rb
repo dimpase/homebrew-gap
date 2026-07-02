@@ -21,7 +21,7 @@ class Gap < Formula
   # it requires either GNU readline, or no readline at all; but
   # the latter leads to an inferior user experience.
   # So we depend on GNU readline here.
-  depends_on "readline" # - for main GAP
+  depends_on "readline" # for GAP itself
   depends_on "singular" # many packages
   depends_on "zeromq"   # ZeroMQInterface
   depends_on "zlib-ng-compat" # a 2nd order dep.
