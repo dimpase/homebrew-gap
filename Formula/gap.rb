@@ -32,7 +32,10 @@ class Gap < Formula
   depends_on "readline" # - for main GAP
   depends_on "singular" # many packages
   depends_on "zeromq"   # ZeroMQInterface
-  depends_on "zlib-ng-compat" # a 2nd order dep.
+
+  on_linux do
+    depends_on "zlib-ng-compat" # a 2nd order dep.
+  end
 
   def install
     system "./configure", *std_configure_args
