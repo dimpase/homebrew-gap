@@ -8,9 +8,9 @@ class Gap < Formula
 
   bottle do
     root_url "https://github.com/dimpase/homebrew-gap/releases/download/gap-4.15.1"
-    rebuild 2
-    sha256 arm64_tahoe:  "dd342780caaa84bdcdb98ab2109ba7d3d507d2e1691ab77c7880162ec3b55a13"
-    sha256 x86_64_linux: "ae0bcefab424955f14c1bd29349723aa46244418d5a0ab6da84cdac614046769"
+    rebuild 3
+    sha256 arm64_tahoe:  "e0e67f712a02b159e1c264f17f825d03fd1ab3cb1ce16ba38d9557e227abd86e"
+    sha256 x86_64_linux: "6c7f75a276f24eab2f6135733ed06169079197500aec23445b8bde71dfd91b3f"
   end
 
   # most dependencies are for for packages; only gmp and readline are for GAP itself
