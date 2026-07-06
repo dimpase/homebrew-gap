@@ -69,7 +69,15 @@ class Gap < Formula
   end
 
   test do
+    (testpath/"testinstallalnuth.g").write <<~EOS
+      LoadPackage("alnuth");
+      x := Indeterminate(Rationals, "x");
+      dirs := DirectoriesPackageLibrary( "alnuth", "tst" );
+      tests := ["ALNUTH.tst", "userprefs.tst",];
+      tests := List(tests, f -> Filename(dirs,f));
+      TestDirectory(tests, rec(exitGAP := true));
+    EOS
     ENV["LC_CTYPE"] = "en_GB.UTF-8"
-    system bin/"gap", "-r", "-A", "#{lib}/gap/pkg/alnuth/tst/testinstall.g"
+    system bin/"gap", "-r", "-A", "testinstallalnuth.g"
   end
 end
