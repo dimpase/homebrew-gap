@@ -44,6 +44,8 @@ class Gap < Formula
     depends_on "zlib-ng-compat" # a 2nd order dep.
   end
 
+  patch :DATA
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
@@ -81,3 +83,17 @@ class Gap < Formula
     system bin/"gap", "-r", "-A", "testinstallalnuth.g"
   end
 end
+
+__END__
+diff --git a/bin/BuildPackages.sh b/bin/BuildPackages.sh
+index 8a9f641eb..4b00fce79 100755
+--- a/bin/BuildPackages.sh
++++ b/bin/BuildPackages.sh
+@@ -96,6 +96,7 @@ then
+   IFS=$'\n' PACKAGES=($(find . -maxdepth 2 -type f -name PackageInfo.g | sort -f))
+   IFS=$old_IFS
+   PACKAGES=( "${PACKAGES[@]%/PackageInfo.g}" )
++  PACKAGES=( "${PACKAGES[@]%./browse}" ) # remove Browse from the list
+ fi
+
+ notice "Using GAP root $GAPROOT"
