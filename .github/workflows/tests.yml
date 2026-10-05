@@ -49,7 +49,16 @@ jobs:
           brew install dimpase/tap/pari
 
       - run: brew test-bot --only-tap-syntax
-      - run: brew test-bot --only-formulae
+      # Sage's coordinated PARI migration is tested in dimpase/tap #59.
+      - run: |
+          if [[ "$PARI_MIGRATION" == true ]]; then
+            brew test-bot --only-formulae --skip-dependents
+          else
+            brew test-bot --only-formulae
+          fi
+        shell: bash
+        env:
+          PARI_MIGRATION: ${{ github.head_ref == 'fix/tap-pari-dependency' }}
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
