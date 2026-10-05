@@ -5,14 +5,7 @@ class Gap < Formula
   url "https://github.com/gap-system/gap/releases/download/v4.16.1/gap-4.16.1.tar.gz"
   sha256 "df7d116f03c426dac24bf7c76ea11416b29c5a48eac12f97811d80ec215f7f69"
   license "GPL-2.0-or-later"
-
-  bottle do
-    root_url "https://github.com/dimpase/homebrew-gap/releases/download/gap-4.16.1"
-    rebuild 1
-    sha256 arm64_tahoe:  "847657734acb90896570a7f41a5197e8e38935429215c43f58c6f98d4af2470d"
-    sha256 arm64_linux:  "d4882f08c7457379f578bb027d64cda63a041bc3d6751f85d53a82353489d9e9"
-    sha256 x86_64_linux: "8efbf32304d11ef8a5f2e5b2a6e50c937bb0d5c8cb7a005f2126c9f4ae5fd0f1"
-  end
+  revision 1
 
   # for some of the packages, e.g. simpcomp
   depends_on "autoconf" => :build
@@ -22,6 +15,7 @@ class Gap < Formula
   # most dependencies are for for packages; only gmp and readline are for GAP itself
   depends_on "cddlib"     # CddInterface
   depends_on "curl"       # curlInterface
+  depends_on "dimpase/tap/pari"
   depends_on "flint"      # a 2nd order dep.
   depends_on "fplll"      # float
   depends_on "gmp"        # - for main GAP
@@ -30,8 +24,7 @@ class Gap < Formula
   depends_on "mpfi"       # float
   depends_on "mpfr"       # float, normalizinterface
   depends_on "nauty"      # grape
-  depends_on "ncurses"    # browse
-  depends_on "pari"       # alnuth
+  depends_on "ncurses"    # browse # alnuth
   # GAP cannot be built against the native macOS version of readline
   # it requires either GNU readline, or no readline at all; but
   # the latter leads to an inferior user experience.
