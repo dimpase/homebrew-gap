@@ -7,6 +7,13 @@ class Gap < Formula
   license "GPL-2.0-or-later"
   revision 2
 
+  bottle do
+    root_url "https://github.com/dimpase/homebrew-gap/releases/download/gap-4.16.1_2"
+    sha256 arm64_tahoe:  "d9bba324e7f2d160f152598b73df9737b2e6d3cf6492a2c1ccaaf541aad05c3f"
+    sha256 arm64_linux:  "b1656dbfa6fe1ad5003f2522c83fbf3520bcb59c0b317a61b71a8fa2d019d4ee"
+    sha256 x86_64_linux: "f0f8ce21d5f171722b8c1fb472fd0a37bb59e560fa0127ead7d6bb9c6582e9b7"
+  end
+
   # for some of the packages, e.g. simpcomp
   depends_on "autoconf" => :build
   depends_on "automake" => :build
