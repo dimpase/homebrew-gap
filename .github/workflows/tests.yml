@@ -42,14 +42,8 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - name: Tap and install patched PARI
-        run: |
-          brew tap dimpase/tap
-          brew trust --tap dimpase/tap
-          brew install dimpase/tap/pari
-
       - run: brew test-bot --only-tap-syntax
-      # Sage's coordinated PARI migration is tested in dimpase/tap #59.
+      # Sage's coordinated PARI migration is tested in dimpase/tap #122.
       - run: |
           if [[ "$PARI_MIGRATION" == true ]]; then
             brew test-bot --only-formulae --skip-dependents
@@ -58,7 +52,7 @@ jobs:
           fi
         shell: bash
         env:
-          PARI_MIGRATION: ${{ github.head_ref == 'fix/tap-pari-dependency' }}
+          PARI_MIGRATION: ${{ github.head_ref == 'fix/core-pari' }}
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
