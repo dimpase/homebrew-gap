@@ -11,25 +11,35 @@ as possible.
 
 To perform GAP Homebrew installation for the first time, call
 
-    brew install gap-system/gap/gap
-    
+```sh
+brew install gap-system/gap/gap
+```
+
 After succcessful installation, call
 
-    gap
-    
+```sh
+gap
+```
+
 in the Terminal to start GAP.
 
 To upgrade an existing GAP Homebrew installation, call
 
-    brew upgrade gap-system/gap/gap
+```sh
+brew upgrade gap-system/gap/gap
+```
 
 To test the GAP Homebrew installation, call
 
-    brew test gap-system/gap/gap
+```sh
+brew test gap-system/gap/gap
+```
 
 For the test with a more verbose output, start GAP and then call
 
-    Read( Filename( DirectoriesLibrary("tst"), "testinstall.g" ));
+```gap
+Read( Filename( DirectoriesLibrary("tst"), "testinstall.g" ));
+```
 
 Binary Homebrew (and Linuxbrew) bottles should be available too.
    
